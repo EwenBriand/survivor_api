@@ -1,0 +1,893 @@
+[{
+  "_id": {
+    "$oid": "64f714c7ebcf34771629079a"
+  },
+  "id": 1,
+  "email": "billy.bob@masurao.jp",
+  "name": "Billy",
+  "surname": "Bob",
+  "birth_date": "1973-07-16",
+  "gender": "Male",
+  "work": "CEO",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714c8ebcf34771629079b"
+  },
+  "id": 2,
+  "email": "john.doe@masurao.jp",
+  "name": "John",
+  "surname": "Doe",
+  "birth_date": "1978-01-07",
+  "gender": "Male",
+  "work": "CMO",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714caebcf34771629079c"
+  },
+  "id": 3,
+  "email": "jane.smith@masurao.jp",
+  "name": "Jane",
+  "surname": "Smith",
+  "birth_date": "1983-09-14",
+  "gender": "Female",
+  "work": "VP of Marketing",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714cbebcf34771629079d"
+  },
+  "id": 4,
+  "email": "david.johnson@masurao.jp",
+  "name": "David",
+  "surname": "Johnson",
+  "birth_date": "1985-12-12",
+  "gender": "Male",
+  "work": "Marketing Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714ccebcf34771629079e"
+  },
+  "id": 5,
+  "email": "sarah.anderson@masurao.jp",
+  "name": "Sarah",
+  "surname": "Anderson",
+  "birth_date": "1991-02-26",
+  "gender": "Female",
+  "work": "Marketing Specialist",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714cdebcf34771629079f"
+  },
+  "id": 6,
+  "email": "michael.brown@masurao.jp",
+  "name": "Michael",
+  "surname": "Brown",
+  "birth_date": "1988-05-29",
+  "gender": "Male",
+  "work": "Marketing Specialist",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714ceebcf3477162907a0"
+  },
+  "id": 7,
+  "email": "emily.wilson@masurao.jp",
+  "name": "Emily",
+  "surname": "Wilson",
+  "birth_date": "1993-10-12",
+  "gender": "Female",
+  "work": "Marketing Specialist",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d0ebcf3477162907a1"
+  },
+  "id": 8,
+  "email": "daniel.wilson@masurao.jp",
+  "name": "Daniel",
+  "surname": "Wilson",
+  "birth_date": "1995-10-22",
+  "gender": "Male",
+  "work": "Marketing Specialist",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d1ebcf3477162907a2"
+  },
+  "id": 9,
+  "email": "samantha.thompson@masurao.jp",
+  "name": "Samantha",
+  "surname": "Thompson",
+  "birth_date": "1997-11-12",
+  "gender": "Female",
+  "work": "Marketing Specialist",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d2ebcf3477162907a3"
+  },
+  "id": 10,
+  "email": "james.miller@masurao.jp",
+  "name": "James",
+  "surname": "Miller",
+  "birth_date": "1999-06-20",
+  "gender": "Male",
+  "work": "Marketing Specialist",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d3ebcf3477162907a4"
+  },
+  "id": 11,
+  "email": "victoria.clark@masurao.jp",
+  "name": "Victoria",
+  "surname": "Clark",
+  "birth_date": "1985-04-11",
+  "gender": "Female",
+  "work": "Finance Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d4ebcf3477162907a5"
+  },
+  "id": 12,
+  "email": "alexander.lee@masurao.jp",
+  "name": "Alexander",
+  "surname": "Lee",
+  "birth_date": "1991-11-16",
+  "gender": "Male",
+  "work": "Financial Analyst",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d6ebcf3477162907a6"
+  },
+  "id": 13,
+  "email": "natalie.adams@masurao.jp",
+  "name": "Natalie",
+  "surname": "Adams",
+  "birth_date": "1993-05-26",
+  "gender": "Female",
+  "work": "Financial Analyst",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d7ebcf3477162907a7"
+  },
+  "id": 14,
+  "email": "nathan.wilson@masurao.jp",
+  "name": "Nathan",
+  "surname": "Wilson",
+  "birth_date": "1995-02-28",
+  "gender": "Male",
+  "work": "Financial Analyst",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d8ebcf3477162907a8"
+  },
+  "id": 15,
+  "email": "isabella.roberts@masurao.jp",
+  "name": "Isabella",
+  "surname": "Roberts",
+  "birth_date": "1997-12-07",
+  "gender": "Female",
+  "work": "Financial Analyst",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714d9ebcf3477162907a9"
+  },
+  "id": 16,
+  "email": "daniel.hall@masurao.jp",
+  "name": "Daniel",
+  "surname": "Hall",
+  "birth_date": "1999-01-11",
+  "gender": "Male",
+  "work": "Financial Analyst",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714daebcf3477162907aa"
+  },
+  "id": 17,
+  "email": "oliver.evans@masurao.jp",
+  "name": "Oliver",
+  "surname": "Evans",
+  "birth_date": "1983-11-22",
+  "gender": "Male",
+  "work": "HR Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714dcebcf3477162907ab"
+  },
+  "id": 18,
+  "email": "emma.hernandez@masurao.jp",
+  "name": "Emma",
+  "surname": "Hernandez",
+  "birth_date": "1991-03-25",
+  "gender": "Female",
+  "work": "HR Coordinator",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714ddebcf3477162907ac"
+  },
+  "id": 19,
+  "email": "ethan.kelly@masurao.jp",
+  "name": "Ethan",
+  "surname": "Kelly",
+  "birth_date": "1993-01-04",
+  "gender": "Male",
+  "work": "HR Coordinator",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714deebcf3477162907ad"
+  },
+  "id": 20,
+  "email": "ava.green@masurao.jp",
+  "name": "Ava",
+  "surname": "Green",
+  "birth_date": "1995-02-07",
+  "gender": "Female",
+  "work": "HR Coordinator",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714dfebcf3477162907ae"
+  },
+  "id": 21,
+  "email": "lucas.wilson@masurao.jp",
+  "name": "Lucas",
+  "surname": "Wilson",
+  "birth_date": "1997-02-05",
+  "gender": "Male",
+  "work": "HR Coordinator",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714e0ebcf3477162907af"
+  },
+  "id": 22,
+  "email": "olivia.collins@masurao.jp",
+  "name": "Olivia",
+  "surname": "Collins",
+  "birth_date": "1999-02-17",
+  "gender": "Female",
+  "work": "HR Coordinator",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714e2ebcf3477162907b0"
+  },
+  "id": 23,
+  "email": "liam.lewis@masurao.jp",
+  "name": "Liam",
+  "surname": "Lewis",
+  "birth_date": "2001-11-24",
+  "gender": "Male",
+  "work": "HR Coordinator",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714e3ebcf3477162907b1"
+  },
+  "id": 24,
+  "email": "noah.lopez@masurao.jp",
+  "name": "Noah",
+  "surname": "Lopez",
+  "birth_date": "1968-08-04",
+  "gender": "Male",
+  "work": "COO",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714e4ebcf3477162907b2"
+  },
+  "id": 25,
+  "email": "lily.mitchell@masurao.jp",
+  "name": "Lily",
+  "surname": "Mitchell",
+  "birth_date": "1978-12-05",
+  "gender": "Female",
+  "work": "Operations Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714e5ebcf3477162907b3"
+  },
+  "id": 26,
+  "email": "jacob.bell@masurao.jp",
+  "name": "Jacob",
+  "surname": "Bell",
+  "birth_date": "1985-09-15",
+  "gender": "Male",
+  "work": "Project Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f714e6ebcf3477162907b4"
+  },
+  "id": 27,
+  "email": "chloe.jenkins@masurao.jp",
+  "name": "Chloe",
+  "surname": "Jenkins",
+  "birth_date": "1988-12-08",
+  "gender": "Female",
+  "work": "Project Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163006d908b86f469018"
+  }
+},{
+  "_id": {
+    "$oid": "64f7163106d908b86f469019"
+  },
+  "id": 28,
+  "email": "ethan.watson@masurao.jp",
+  "name": "Ethan",
+  "surname": "Watson",
+  "birth_date": "1991-08-08",
+  "gender": "Male",
+  "work": "Project Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163206d908b86f46901a"
+  },
+  "id": 29,
+  "email": "sophia.price@masurao.jp",
+  "name": "Sophia",
+  "surname": "Price",
+  "birth_date": "1993-01-06",
+  "gender": "Female",
+  "work": "Project Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163406d908b86f46901b"
+  },
+  "id": 30,
+  "email": "mason.ross@masurao.jp",
+  "name": "Mason",
+  "surname": "Ross",
+  "birth_date": "1995-03-01",
+  "gender": "Male",
+  "work": "Project Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163506d908b86f46901c"
+  },
+  "id": 31,
+  "email": "amelia.howard@masurao.jp",
+  "name": "Amelia",
+  "surname": "Howard",
+  "birth_date": "1997-09-11",
+  "gender": "Female",
+  "work": "Sales Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163606d908b86f46901d"
+  },
+  "id": 32,
+  "email": "henry.turner@masurao.jp",
+  "name": "Henry",
+  "surname": "Turner",
+  "birth_date": "1999-03-08",
+  "gender": "Male",
+  "work": "Sales Representative",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163706d908b86f46901e"
+  },
+  "id": 33,
+  "email": "sophia.morgan@masurao.jp",
+  "name": "Sophia",
+  "surname": "Morgan",
+  "birth_date": "2001-07-01",
+  "gender": "Female",
+  "work": "Sales Representative",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163906d908b86f46901f"
+  },
+  "id": 34,
+  "email": "jackson.james@masurao.jp",
+  "name": "Jackson",
+  "surname": "James",
+  "birth_date": "2003-10-19",
+  "gender": "Male",
+  "work": "Sales Representative",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163a06d908b86f469020"
+  },
+  "id": 35,
+  "email": "ava.baker@masurao.jp",
+  "name": "Ava",
+  "surname": "Baker",
+  "birth_date": "1991-03-01",
+  "gender": "Female",
+  "work": "Account Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163b06d908b86f469021"
+  },
+  "id": 36,
+  "email": "aiden.hill@masurao.jp",
+  "name": "Aiden",
+  "surname": "Hill",
+  "birth_date": "1993-06-10",
+  "gender": "Male",
+  "work": "Account Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163c06d908b86f469022"
+  },
+  "id": 37,
+  "email": "ella.mitchell@masurao.jp",
+  "name": "Ella",
+  "surname": "Mitchell",
+  "birth_date": "1995-03-11",
+  "gender": "Female",
+  "work": "Account Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163d06d908b86f469023"
+  },
+  "id": 38,
+  "email": "carter.stewart@masurao.jp",
+  "name": "Carter",
+  "surname": "Stewart",
+  "birth_date": "1997-06-21",
+  "gender": "Male",
+  "work": "Account Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7163f06d908b86f469024"
+  },
+  "id": 39,
+  "email": "emily.cooper@masurao.jp",
+  "name": "Emily",
+  "surname": "Cooper",
+  "birth_date": "1999-11-06",
+  "gender": "Female",
+  "work": "Account Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164006d908b86f469025"
+  },
+  "id": 40,
+  "email": "lucas.walker@masurao.jp",
+  "name": "Lucas",
+  "surname": "Walker",
+  "birth_date": "2001-01-18",
+  "gender": "Male",
+  "work": "Account Manager",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164106d908b86f469026"
+  },
+  "id": 41,
+  "email": "scarlett.thompson@masurao.jp",
+  "name": "Scarlett",
+  "surname": "Thompson",
+  "birth_date": "1983-03-18",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164206d908b86f469027"
+  },
+  "id": 42,
+  "email": "sebastian.carter@masurao.jp",
+  "name": "Sebastian",
+  "surname": "Carter",
+  "birth_date": "1988-06-28",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164306d908b86f469028"
+  },
+  "id": 43,
+  "email": "chloe.green@masurao.jp",
+  "name": "Chloe",
+  "surname": "Green",
+  "birth_date": "1993-08-17",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164506d908b86f469029"
+  },
+  "id": 44,
+  "email": "jackson.richardson@masurao.jp",
+  "name": "Jackson",
+  "surname": "Richardson",
+  "birth_date": "1995-04-15",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164606d908b86f46902a"
+  },
+  "id": 45,
+  "email": "lily.sanchez@masurao.jp",
+  "name": "Lily",
+  "surname": "Sanchez",
+  "birth_date": "1997-11-14",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164706d908b86f46902b"
+  },
+  "id": 46,
+  "email": "henry.bell@masurao.jp",
+  "name": "Henry",
+  "surname": "Bell",
+  "birth_date": "1999-07-08",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164806d908b86f46902c"
+  },
+  "id": 47,
+  "email": "olivia.ramirez@masurao.jp",
+  "name": "Olivia",
+  "surname": "Collins",
+  "birth_date": "2001-01-17",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164906d908b86f46902d"
+  },
+  "id": 48,
+  "email": "samuel.nelson@masurao.jp",
+  "name": "Samuel",
+  "surname": "Nelson",
+  "birth_date": "2003-11-22",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164b06d908b86f46902e"
+  },
+  "id": 49,
+  "email": "victoria.wilson@masurao.jp",
+  "name": "Victoria",
+  "surname": "Wilson",
+  "birth_date": "1958-07-15",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164c06d908b86f46902f"
+  },
+  "id": 50,
+  "email": "william.evans@masurao.jp",
+  "name": "William",
+  "surname": "Evans",
+  "birth_date": "1953-08-25",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164d06d908b86f469030"
+  },
+  "id": 51,
+  "email": "emily.lopez@masurao.jp",
+  "name": "Emily",
+  "surname": "Lopez",
+  "birth_date": "1963-04-20",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164e06d908b86f469031"
+  },
+  "id": 52,
+  "email": "michael.mitchell@masurao.jp",
+  "name": "Michael",
+  "surname": "Mitchell",
+  "birth_date": "1968-06-14",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7164f06d908b86f469032"
+  },
+  "id": 53,
+  "email": "olivia.rodriguez@masurao.jp",
+  "name": "Olivia",
+  "surname": "Rodriguez",
+  "birth_date": "1973-11-13",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165006d908b86f469033"
+  },
+  "id": 54,
+  "email": "ethan.stewart@masurao.jp",
+  "name": "Ethan",
+  "surname": "Stewart",
+  "birth_date": "1978-02-14",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165206d908b86f469034"
+  },
+  "id": 55,
+  "email": "ava.cooper@masurao.jp",
+  "name": "Ava",
+  "surname": "Cooper",
+  "birth_date": "1983-12-13",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165306d908b86f469035"
+  },
+  "id": 56,
+  "email": "jacob.walker@masurao.jp",
+  "name": "Jacob",
+  "surname": "Walker",
+  "birth_date": "1988-01-08",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165406d908b86f469036"
+  },
+  "id": 57,
+  "email": "sophia.hernandez@masurao.jp",
+  "name": "Sophia",
+  "surname": "Hernandez",
+  "birth_date": "1988-08-20",
+  "gender": "Female",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165506d908b86f469037"
+  },
+  "id": 58,
+  "email": "logan.wilson@masurao.jp",
+  "name": "Logan",
+  "surname": "Wilson",
+  "birth_date": "1991-07-07",
+  "gender": "Male",
+  "work": "Administrative Assistant",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165606d908b86f469038"
+  },
+  "id": 59,
+  "email": "chloe.lee@masurao.jp",
+  "name": "Chloe",
+  "surname": "Lee",
+  "birth_date": "2003-03-06",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165706d908b86f469039"
+  },
+  "id": 60,
+  "email": "aiden.white@masurao.jp",
+  "name": "Aiden",
+  "surname": "White",
+  "birth_date": "2004-02-12",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165906d908b86f46903a"
+  },
+  "id": 61,
+  "email": "emma.parker@masurao.jp",
+  "name": "Emma",
+  "surname": "Parker",
+  "birth_date": "2004-01-24",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165a06d908b86f46903b"
+  },
+  "id": 62,
+  "email": "lucas.garcia@masurao.jp",
+  "name": "Lucas",
+  "surname": "Garcia",
+  "birth_date": "2001-12-01",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165b06d908b86f46903c"
+  },
+  "id": 63,
+  "email": "amelia.taylor@masurao.jp",
+  "name": "Amelia",
+  "surname": "Taylor",
+  "birth_date": "2002-07-17",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165c06d908b86f46903d"
+  },
+  "id": 64,
+  "email": "james.morris@masurao.jp",
+  "name": "James",
+  "surname": "Morris",
+  "birth_date": "2003-11-11",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165d06d908b86f46903e"
+  },
+  "id": 65,
+  "email": "sophia.wilson@masurao.jp",
+  "name": "Sophia",
+  "surname": "Wilson",
+  "birth_date": "2004-08-13",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7165f06d908b86f46903f"
+  },
+  "id": 66,
+  "email": "benjamin.brown@masurao.jp",
+  "name": "Benjamin",
+  "surname": "Brown",
+  "birth_date": "2004-01-21",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166006d908b86f469040"
+  },
+  "id": 67,
+  "email": "emily.jones@masurao.jp",
+  "name": "Emily",
+  "surname": "Jones",
+  "birth_date": "2000-12-22",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166106d908b86f469041"
+  },
+  "id": 68,
+  "email": "william.davis@masurao.jp",
+  "name": "William",
+  "surname": "Davis",
+  "birth_date": "2002-08-16",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166206d908b86f469042"
+  },
+  "id": 69,
+  "email": "ava.clark@masurao.jp",
+  "name": "Ava",
+  "surname": "Clark",
+  "birth_date": "2004-12-16",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166306d908b86f469043"
+  },
+  "id": 70,
+  "email": "jacob.hall@masurao.jp",
+  "name": "Jacob",
+  "surname": "Hall",
+  "birth_date": "2001-10-18",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166506d908b86f469044"
+  },
+  "id": 71,
+  "email": "sophia.mitchell@masurao.jp",
+  "name": "Sophia",
+  "surname": "Mitchell",
+  "birth_date": "2004-05-10",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166606d908b86f469045"
+  },
+  "id": 72,
+  "email": "mason.roberts@masurao.jp",
+  "name": "Mason",
+  "surname": "Roberts",
+  "birth_date": "2003-12-11",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166706d908b86f469046"
+  },
+  "id": 73,
+  "email": "chloe.hill@masurao.jp",
+  "name": "Chloe",
+  "surname": "Hill",
+  "birth_date": "2002-04-23",
+  "gender": "Female",
+  "work": "Administrative Intern",
+  "subordinates": []
+},{
+  "_id": {
+    "$oid": "64f7166806d908b86f469047"
+  },
+  "id": 74,
+  "email": "oliver.lewis@masurao.jp",
+  "name": "Oliver",
+  "surname": "Lewis",
+  "birth_date": "2000-08-13",
+  "gender": "Male",
+  "work": "Administrative Intern",
+  "subordinates": []
+}]
