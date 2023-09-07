@@ -127,10 +127,6 @@ def get_img(employee_id):
         return 'Bad request', 400
 
 
-
-
-
-
 @app.route('/api/chat/all_by_names', methods=['POST'])
 def get_all_by_name():
     if check_aut2(request) != True or check_aut(request) != True:
@@ -138,15 +134,15 @@ def get_all_by_name():
     data2 = request.get_json()
     id_list = data2["ids"]
     response = list(private.find(
-    {'people_in': {'$all': [{'$elemMatch': {'id': {'$in': id_list}}}]}}))
+        {'people_in': {'$all': [{'$elemMatch': {'id': {'$in': id_list}}}]}}))
 
     if response is None:
         return 'Not found', 404
-    
+
     i = 0
     while i != len(response):
         count = 0
-        for j in range(len(response[i]["people_in"]) ):
+        for j in range(len(response[i]["people_in"])):
             if response[i]["people_in"][j]["id"] in id_list:
                 count += 1
         if count == len(id_list):
@@ -158,34 +154,39 @@ def get_all_by_name():
 
     return response, 200
 
+
 @app.route('/api/chat/send_ms', methods=['POST'])
 def send_ms():
     if check_aut2(request) != True or check_aut(request) != True:
         return 'Bad Aut', 400
     data2 = request.get_json()
-    
+
     if data2 is None or "id_chan" not in data2 or "id" not in data2 or "text" not in data2:
         return 'Bad body', 400
-    
-    id_ms = len(private.find({"_id": ObjectId(data2["id_chan"])})["all_messages"])
+
+    id_ms = len(private.find(
+        {"_id": ObjectId(data2["id_chan"])})["all_messages"])
 
     private.update_one({"_id": ObjectId(data2["id_chan"])}, {"$push": {"all_messages": {"id_ms": id_ms, "id": int(
         data2["id"]), "content": data2["text"], "date": datetime.now().strftime('%d:%m:%Y'), "hours": datetime.now().strftime('%H:%M')}}})
-    
+
     return "ok", 200
+
 
 @app.route('/api/chat/create_chan', methods=['POST'])
 def create_chan():
     if check_aut2(request) != True or check_aut(request) != True:
         return 'Bad Aut', 400
     data2 = request.get_json()
-    
+
     if data2 is None or "people_in" not in data2:
         return 'Bad body', 400
-    
-    private.insert_one({"people_in": data2["people_in"], "all_messages": []})
-    
-    return "ok", 200
+
+    result = private.insert_one(
+        {"people_in": data2["people_in"], "all_messages": []})
+    inserted_id = str(result.inserted_id)
+    return inserted_id, 200
+
 
 @app.route('/api/chat/private_chan', methods=['GET'])
 def private_chan():
@@ -194,7 +195,8 @@ def private_chan():
     id = request.args.get('id1')
     id2 = request.args.get('id2')
     print("id: ", id, id2)
-    response = private.find_one({'people_in': {'$size': 2, '$all': [{'$elemMatch': {'id': id}}, {'$elemMatch': {'id': id2}}]}})
+    response = private.find_one({'people_in': {'$size': 2, '$all': [
+                                {'$elemMatch': {'id': id}}, {'$elemMatch': {'id': id2}}]}})
     print(response)
 
     if response is None:
@@ -228,8 +230,10 @@ def modify_ms():
     if data2 is None or "id_chan" not in data2 or "id_ms" not in data2 or "text" not in data2:
         return 'Bad body', 400
 
-    query = {"_id": ObjectId(data2["id_chan"]), "all_messages": {'$elemMatch': {'id_ms': data2["id_ms"]}}}
-    update = {"$set": {"all_messages.$.content": data2["text"], "all_messages.$.date": datetime.now().strftime('%d:%m:%Y'), "all_messages.$.hours": datetime.now().strftime('%H:%M')}}
+    query = {"_id": ObjectId(data2["id_chan"]), "all_messages": {
+        '$elemMatch': {'id_ms': data2["id_ms"]}}}
+    update = {"$set": {"all_messages.$.content": data2["text"], "all_messages.$.date": datetime.now(
+    ).strftime('%d:%m:%Y'), "all_messages.$.hours": datetime.now().strftime('%H:%M')}}
     private.update_one(query, update)
     # private.update_one({"_id": ObjectId(data2["id_chan"]), "all_messages": {'$all': [{'$elemMatch': {'id_ms': data2["id_ms"]}}]}}, {{"all_messages": {"content": data2["text"], "date": datetime.now().strftime('%d:%m:%Y'), "hours": datetime.now().strftime('%H:%M')}}})
 
