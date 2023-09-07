@@ -82,7 +82,8 @@ def me():
         "birth_date": "2000-08-13",
         "gender": "Male",
         "work": "Administrative Intern",
-        "subordinates": []
+        "subordinates": [],
+        "url": "https://mysurvivor.s3.amazonaws.com/img/74.png"
     }, 200
 
 
