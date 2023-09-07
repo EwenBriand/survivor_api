@@ -42,16 +42,8 @@ def check_aut2(request):
 def emp():
     if check_aut2(request) != True or check_aut(request) != True:
         return 'Bad Aut', 400
-    response = []
-    for i in data:
-        if "id" in i:
-            response.append({
-                "id": i["id"],
-                "email": i["email"],
-                "name": i["name"],
-                "surname": i["surname"]
-            })
-    return response, 200
+
+    return data, 200
 
 
 @app.route('/api/employees/login', methods=['POST'])
