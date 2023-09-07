@@ -126,6 +126,10 @@ def get_all_by_name():
         return 'Bad Aut', 400
     data2 = request.get_json()
     id_list = data2["ids"]
+
+    for i in range(len(id_list)):
+        id_list[i] = int(id_list[i])
+
     response = list(private.find(
         {'people_in': {'$all': [{'$elemMatch': {'id': {'$in': id_list}}}]}}))
 
@@ -175,6 +179,9 @@ def create_chan():
     if data2 is None or "people_in" not in data2:
         return 'Bad body', 400
 
+    for i in range(len(data2["people_in"])):
+        data2["people_in"][i]["id"] = int(data2["people_in"][i]["id"])
+
     result = private.insert_one(
         {"people_in": data2["people_in"], "all_messages": []})
     inserted_id = str(result.inserted_id)
@@ -189,7 +196,7 @@ def private_chan():
     id2 = request.args.get('id2')
     print("id: ", id, id2)
     response = private.find_one({'people_in': {'$size': 2, '$all': [
-                                {'$elemMatch': {'id': id}}, {'$elemMatch': {'id': id2}}]}})
+                                {'$elemMatch': {'id': int(id)}}, {'$elemMatch': {'id': int(id2)}}]}})
     print(response)
 
     if response is None:
@@ -234,7 +241,7 @@ def modify_ms():
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
-    # app.run(debug=True)
+    # serve(app, host='0.0.0.0', port=8080)
+    app.run(debug=True)
 
 #  http://127.0.0.1:5000
