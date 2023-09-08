@@ -161,7 +161,7 @@ def send_ms():
     if data2 is None or "id_chan" not in data2 or "id" not in data2 or "text" not in data2:
         return 'Bad body', 400
 
-    id_ms = len(private.find(
+    id_ms = len(private.find_one(
         {"_id": ObjectId(data2["id_chan"])})["all_messages"])
 
     private.update_one({"_id": ObjectId(data2["id_chan"])}, {"$push": {"all_messages": {"id_ms": id_ms, "id": int(
@@ -212,6 +212,8 @@ def find_by_id():
         return 'Bad Aut', 400
     id = request.args.get('id')
     print("id: ", id)
+    if id == "0":
+        return 'Bad request', 400
     response = private.find_one({'_id': ObjectId(id)})
 
     if response is None:
@@ -241,7 +243,7 @@ def modify_ms():
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
-    # app.run(debug=True)
+    # serve(app, host='0.0.0.0', port=8080)
+    app.run(debug=True)
 
 #  http://127.0.0.1:5000
