@@ -1,3 +1,4 @@
+import requests
 import os
 from flask import Flask, request, send_file, render_template
 # import python as back
@@ -10,15 +11,40 @@ import pymongo
 from bson.objectid import ObjectId
 from datetime import datetime
 
-with open('db_survivor.json', 'r') as f:
-    data = json.load(f)
 
-print(data[1]["id"])
+client = pymongo.MongoClient(
+    "mongodb+srv://Garry:MgA2kGlMI2PNkR90@cluster0.jbale6t.mongodb.net/test")
 
-for i in range(len(data)):
-    print(i)
-    data[i]["url"] = "https://mysurvivor.s3.amazonaws.com/img/" + \
-        str(data[i]["id"]) + ".png"
+db = client["survivor"]
 
-with open('db_survivor.json', 'w') as f:
-    json.dump(data, f)
+private = db["users"]
+
+data = list(private.find())
+
+# private.update_many({}, {"$set": {"WWP": 0}})
+
+pe = []
+
+for i in data:
+    temp = {
+        "id": i["id"],
+        "name": i["name"],
+        "surname": i["surname"]
+    }
+    pe.append(temp)
+
+url = "https://pds9gspmwy.eu-west-1.awsapprunner.com/api/chat/create_chan"
+
+payload = json.dumps({
+    "people_in": pe,
+})
+headers = {
+    'accept': 'application/json',
+    'X-Group-Authorization': 'XB9ELKZ0mpNUuiJsPimI_XbEZW8Wve7c',
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzQsImVtYWlsIjoib2xpdmVyLmxld2lzQG1hc3VyYW8uanAiLCJuYW1lIjoiT2xpdmVyIiwic3VybmFtZSI6Ikxld2lzIiwiZXhwIjoxNjk1NzIwMjgwfQ.bTSKDM0q_n1cIAhFHivWGYHUAnEOGTvgsniJTz4V-Ps',
+    'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)

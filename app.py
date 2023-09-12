@@ -17,8 +17,13 @@ db = client["survivor"]
 
 private = db["chatPrivate"]
 
-with open('db_survivor.json', 'r') as f:
-    data = json.load(f)
+users = db["users"]
+wdg = db["workshop"]
+
+data = list(users.find())
+
+for i in data:
+    del i["_id"]
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -239,6 +244,80 @@ def modify_ms():
     private.update_one(query, update)
     # private.update_one({"_id": ObjectId(data2["id_chan"]), "all_messages": {'$all': [{'$elemMatch': {'id_ms': data2["id_ms"]}}]}}, {{"all_messages": {"content": data2["text"], "date": datetime.now().strftime('%d:%m:%Y'), "hours": datetime.now().strftime('%H:%M')}}})
 
+    return "ok", 200
+
+
+@app.route('/api/wdg/create', methods=['POST'])
+def create_wdg():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data2 = request.get_json()
+
+    if data2 is None or "name" not in data2 or "url" not in data2 or "urlImage" not in data2:
+        return 'Bad body', 400
+
+    result = wdg.insert_one(
+        {"name": data2["name"], "url": data2["url"], "urlImage": data2["urlImage"]})
+
+    return str(result.inserted_id), 200
+
+
+@app.route('/api/wdg/get_by_id', methods=['GET'])
+def get_wdg_by_id():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    id = request.args.get('id')
+
+    if id == None or id == "0" or id == "":
+        return 'Bad request', 400
+
+    response = wdg.find_one({'_id': ObjectId(id)})
+    if response is None:
+        return 'Not found', 404
+
+    response["_id"] = str(response["_id"])
+    return response, 200
+
+
+@app.route('/api/wdg/get_all', methods=['GET'])
+def get_all_wdg():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    response = list(wdg.find())
+    if response is None:
+        return 'Not found', 404
+
+    for i in range(len(response)):
+        response[i]["_id"] = str(response[i]["_id"])
+
+    return response, 200
+
+
+@app.route('/api/wdg/add_wdg_to_emp', methods=['POST'])
+def add_wdg_to_emp():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data2 = request.get_json()
+
+    if data2 is None or "id_emp" not in data2 or "id_wdg" not in data2:
+        return 'Bad body', 400
+
+    users.update_one({"id": int(data2["id_emp"])}, {
+                     "$addToSet": {"widgets": ObjectId(data2["id_wdg"])}})
+    return "ok", 200
+
+
+@app.route('/api/wdg/rm_wdg_to_emp', methods=['POST'])
+def rm_wdg_to_emp():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data2 = request.get_json()
+
+    if data2 is None or "id_emp" not in data2 or "id_wdg" not in data2:
+        return 'Bad body', 400
+
+    users.update_one({"id": int(data2["id_emp"])}, {
+                     "$pull": {"widgets": ObjectId(data2["id_wdg"])}})
     return "ok", 200
 
 
