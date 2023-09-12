@@ -22,8 +22,10 @@ wdg = db["workshop"]
 
 data = list(users.find())
 
-for i in data:
-    del i["_id"]
+for i in range(len(data)):
+    data[i]["_id"] = str(data[i]["_id"])
+    for j in range(len(data[i]["widget"])):
+        data[i]["widget"][j] = str(data[i]["widget"][j])
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -71,17 +73,8 @@ def login():
 def me():
     if check_aut2(request) != True or check_aut(request) != True:
         return 'Bad Aut', 400
-    return {
-        "id": 74,
-        "email": "oliver.lewis@masurao.jp",
-        "name": "Oliver",
-        "surname": "Lewis",
-        "birth_date": "2000-08-13",
-        "gender": "Male",
-        "work": "Administrative Intern",
-        "subordinates": [],
-        "url": "https://mysurvivor.s3.amazonaws.com/img/74.png"
-    }, 200
+
+    return data[73], 200
 
 
 @app.route('/api/employees/leader', methods=['GET'])
@@ -303,7 +296,7 @@ def add_wdg_to_emp():
         return 'Bad body', 400
 
     users.update_one({"id": int(data2["id_emp"])}, {
-                     "$addToSet": {"widgets": ObjectId(data2["id_wdg"])}})
+                     "$addToSet": {"widget": ObjectId(data2["id_wdg"])}})
     return "ok", 200
 
 
@@ -317,7 +310,7 @@ def rm_wdg_to_emp():
         return 'Bad body', 400
 
     users.update_one({"id": int(data2["id_emp"])}, {
-                     "$pull": {"widgets": ObjectId(data2["id_wdg"])}})
+                     "$pull": {"widget": ObjectId(data2["id_wdg"])}})
     return "ok", 200
 
 

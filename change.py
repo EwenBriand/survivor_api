@@ -21,30 +21,30 @@ private = db["users"]
 
 data = list(private.find())
 
-# private.update_many({}, {"$set": {"WWP": 0}})
+private.update_many({}, {"$unset": {"widgets": []}})
 
-pe = []
+# pe = []
 
-for i in data:
-    temp = {
-        "id": i["id"],
-        "name": i["name"],
-        "surname": i["surname"]
-    }
-    pe.append(temp)
+# for i in data:
+#     temp = {
+#         "id": i["id"],
+#         "name": i["name"],
+#         "surname": i["surname"]
+#     }
+#     pe.append(temp)
 
-url = "https://pds9gspmwy.eu-west-1.awsapprunner.com/api/chat/create_chan"
+# url = "https://pds9gspmwy.eu-west-1.awsapprunner.com/api/chat/create_chan"
 
-payload = json.dumps({
-    "people_in": pe,
-})
-headers = {
-    'accept': 'application/json',
-    'X-Group-Authorization': 'XB9ELKZ0mpNUuiJsPimI_XbEZW8Wve7c',
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzQsImVtYWlsIjoib2xpdmVyLmxld2lzQG1hc3VyYW8uanAiLCJuYW1lIjoiT2xpdmVyIiwic3VybmFtZSI6Ikxld2lzIiwiZXhwIjoxNjk1NzIwMjgwfQ.bTSKDM0q_n1cIAhFHivWGYHUAnEOGTvgsniJTz4V-Ps',
-    'Content-Type': 'application/json'
-}
+# payload = json.dumps({
+#     "people_in": pe,
+# })
+# headers = {
+#     'accept': 'application/json',
+#     'X-Group-Authorization': 'XB9ELKZ0mpNUuiJsPimI_XbEZW8Wve7c',
+#     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzQsImVtYWlsIjoib2xpdmVyLmxld2lzQG1hc3VyYW8uanAiLCJuYW1lIjoiT2xpdmVyIiwic3VybmFtZSI6Ikxld2lzIiwiZXhwIjoxNjk1NzIwMjgwfQ.bTSKDM0q_n1cIAhFHivWGYHUAnEOGTvgsniJTz4V-Ps',
+#     'Content-Type': 'application/json'
+# }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+# response = requests.request("POST", url, headers=headers, data=payload)
 
-print(response.text)
+# print(response.text)
