@@ -14,18 +14,18 @@ import bcrypt
 
 
 client = pymongo.MongoClient(
-    "mongodb+srv://Garry:MgA2kGlMI2PNkR90@cluster0.jbale6t.mongodb.net/test")
+    "mongodb+srv://hello:4SGDlVXcixYzsyKf@cluster0.2ndba1e.mongodb.net/")
 
 db = client["survivor"]
 
-private = db["users"]
+private = db["workshop"]
 
 data = list(private.find())
 
 password = "password".encode('utf-8')
 hashed_password = bcrypt.hashpw(password, bcrypt.gensalt(10))
 
-private.update_many({}, {"$set": {"password": hashed_password}})
+private.update_many({}, {"$set": {"rgb": "#FFFFFF"}})
 
 # pe = []
 
