@@ -10,6 +10,7 @@ import json
 import pymongo
 from bson.objectid import ObjectId
 from datetime import datetime
+import bcrypt
 
 
 client = pymongo.MongoClient(
@@ -21,7 +22,10 @@ private = db["users"]
 
 data = list(private.find())
 
-private.update_many({}, {"$unset": {"widgets": []}})
+password = "password".encode('utf-8')
+hashed_password = bcrypt.hashpw(password, bcrypt.gensalt(10))
+
+private.update_many({}, {"$set": {"password": hashed_password}})
 
 # pe = []
 

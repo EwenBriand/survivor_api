@@ -11,7 +11,8 @@ from bson.objectid import ObjectId
 from datetime import datetime
 
 client = pymongo.MongoClient(
-    "mongodb+srv://Garry:MgA2kGlMI2PNkR90@cluster0.jbale6t.mongodb.net/test")
+    # "mongodb+srv://Garry:MgA2kGlMI2PNkR90@cluster0.jbale6t.mongodb.net/test")
+    "mongodb+srv://hello:4SGDlVXcixYzsyKf@cluster0.2ndba1e.mongodb.net/")
 
 db = client["survivor"]
 
