@@ -52,3 +52,21 @@ private.update_many({}, {"$set": {"rgb": "#FFFFFF"}})
 # response = requests.request("POST", url, headers=headers, data=payload)
 
 # print(response.text)
+
+#  NT
+# while True:
+#     url = "https://masurao.fr/api/employees/login"
+
+#     payload = json.dumps({
+#         "email": "oliver.lewis@masurao.jp",
+#         "password": "password"
+#     })
+#     headers = {
+#         'accept': 'application/json',
+#         'X-Group-Authorization': 'a6c42607031f2cbcb2a43a9c109f8219',
+#         'Content-Type': 'application/json'
+#     }
+
+#     response = requests.request("POST", url, headers=headers, data=payload)
+
+#     print(response.text)

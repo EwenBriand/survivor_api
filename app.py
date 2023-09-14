@@ -320,8 +320,8 @@ def rm_wdg_to_emp():
 
 
 if __name__ == '__main__':
-    # serve(app, host='0.0.0.0', port=8080)
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=8080)
+    # app.run(debug=True)
 
 
 #  http://127.0.0.1:5000
