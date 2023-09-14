@@ -18,14 +18,14 @@ client = pymongo.MongoClient(
 
 db = client["survivor"]
 
-private = db["workshop"]
+private = db["users"]
 
 data = list(private.find())
 
 password = "password".encode('utf-8')
 hashed_password = bcrypt.hashpw(password, bcrypt.gensalt(10))
 
-private.update_many({}, {"$set": {"rgb": "#FFFFFF"}})
+private.update_many({}, {"$set": {"niveau": 1, "q_creat": [], "q_acc": []}})
 
 # pe = []
 

@@ -20,6 +20,7 @@ private = db["chatPrivate"]
 
 users = db["users"]
 wdg = db["workshop"]
+quest = db["quest"]
 
 data = list(users.find())
 
@@ -28,6 +29,10 @@ for i in range(len(data)):
     data[i]["password"] = str(data[i]["password"])
     for j in range(len(data[i]["widget"])):
         data[i]["widget"][j] = str(data[i]["widget"][j])
+    for j in range(len(data[i]["q_acc"])):
+        data[i]["q_acc"][j] = str(data[i]["q_acc"][j])
+    for j in range(len(data[i]["q_creat"])):
+        data[i]["q_creat"][j] = str(data[i]["q_creat"][j])
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -59,6 +64,10 @@ def emp():
         res[i]["password"] = str(res[i]["password"])
         for j in range(len(res[i]["widget"])):
             res[i]["widget"][j] = str(res[i]["widget"][j])
+        for j in range(len(res[i]["q_acc"])):
+            res[i]["q_acc"][j] = str(res[i]["q_acc"][j])
+        for j in range(len(res[i]["q_creat"])):
+            res[i]["q_creat"][j] = str(res[i]["q_creat"][j])
 
     return res, 200
 
@@ -89,6 +98,10 @@ def me():
     res["password"] = str(res["password"])
     for j in range(len(res["widget"])):
         res["widget"][j] = str(res["widget"][j])
+    for j in range(len(res["q_acc"])):
+        res["q_acc"][j] = str(res["q_acc"][j])
+    for j in range(len(res["q_creat"])):
+        res["q_creat"][j] = str(res["q_creat"][j])
 
     return res, 200
 
@@ -335,6 +348,113 @@ def rm_wdg_to_emp():
 
     users.update_one({"id": int(data2["id_emp"])}, {
                      "$pull": {"widget": ObjectId(data2["id_wdg"])}})
+    return "ok", 200
+
+
+@app.route('/api/quest/get_all', methods=['GET'])
+def get_all_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    response = list(quest.find())
+    if response is None:
+        return 'Not found', 404
+
+    for i in range(len(response)):
+        response[i]["_id"] = str(response[i]["_id"])
+
+    return response, 200
+
+
+@app.route('/api/quest/add_emp', methods=['POST'])
+def add_emp_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data2 = request.get_json()
+
+    if data2 is None or "id_emp" not in data2 or "id_quest" not in data2:
+        return 'Bad body', 400
+
+    users.update_one({"id": int(data2["id_emp"])}, {
+                     "$addToSet": {"q_acc": ObjectId(data2["id_quest"])}})
+    return "ok", 200
+
+
+@app.route('/api/quest/rm_emp', methods=['POST'])
+def rm_emp_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data2 = request.get_json()
+
+    if data2 is None or "id_emp" not in data2 or "id_quest" not in data2:
+        return 'Bad body', 400
+
+    users.update_one({"id": int(data2["id_emp"])}, {
+                     "$pull": {"q_acc": ObjectId(data2["id_quest"])}})
+    return "ok", 200
+
+
+@app.route('/api/quest/create', methods=['POST'])
+def create_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data = request.get_json()
+
+    if data is None or "type" not in data or "id_emp" not in data or "desc" not in data or "id_doc" not in data or "point" not in data:
+        return 'Bad body', 400
+
+    result = quest.insert_one(
+        {"type": data["type"], "desc": data["desc"], "id_doc": data["id_doc"], "point": data["point"], "complete": -1})
+
+    users.update_one({"id": int(data["id_emp"])}, {
+                     "$addToSet": {"q_creat": ObjectId(result.inserted_id)}})
+
+    return str(result.inserted_id), 200
+
+
+@app.route('/api/quest/modify', methods=['POST'])
+def modify_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data = request.get_json()
+
+    if data is None or "id" not in data:
+        return 'Bad body', 400
+
+    act = quest.find_one({"_id": ObjectId(data["id"])})
+
+    if act is None:
+        return 'Not found', 404
+
+    if "type" in data:
+        act["type"] = data["type"]
+    if "desc" in data:
+        act["desc"] = data["desc"]
+    if "id_doc" in data:
+        act["id_doc"] = data["id_doc"]
+    if "point" in data:
+        act["point"] = data["point"]
+    if "complete" in data:
+        act["complete"] = data["complete"]
+
+    quest.update_one({"_id": ObjectId(data["id"])}, {"$set": act})
+
+    return "ok", 200
+
+
+@app.route('/api/quest/delete', methods=['DELETE'])
+def delete_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    id = request.args.get('id')
+
+    if id == None or id == "0" or id == "":
+        return 'Bad request', 400
+
+    res = quest.delete_one({"_id": ObjectId(id)})
+
+    if res.deleted_count == 0:
+        return 'Not found', 404
+
     return "ok", 200
 
 
