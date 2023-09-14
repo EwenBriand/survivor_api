@@ -248,14 +248,14 @@ def create_wdg():
         return 'Bad Aut', 400
     data2 = request.get_json()
 
-    if data2 is None or "name" not in data2 or "url" not in data2 or "urlImage" not in data2 or "rgb" not in data2:
+    if data2 is None or "name" not in data2 or "url" not in data2 or "urlImage" not in data2 or "rgb" not in data2 or "type" not in data2:
         return 'Bad body', 400
 
     if data2["rgb"][0] != "#":
         data2["rgb"] = "#" + data2["rgb"]
 
     result = wdg.insert_one(
-        {"name": data2["name"], "url": data2["url"], "urlImage": data2["urlImage"], "rgb": data2["rgb"]})
+        {"name": data2["name"], "url": data2["url"], "urlImage": data2["urlImage"], "rgb": data2["rgb"], "type": data2["type"]})
 
     return str(result.inserted_id), 200
 
@@ -320,8 +320,8 @@ def rm_wdg_to_emp():
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
-    # app.run(debug=True)
+    # serve(app, host='0.0.0.0', port=8080)
+    app.run(debug=True)
 
 
 #  http://127.0.0.1:5000
