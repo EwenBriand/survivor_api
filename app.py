@@ -52,7 +52,15 @@ def emp():
     if check_aut2(request) != True or check_aut(request) != True:
         return 'Bad Aut', 400
 
-    return data, 200
+    res = list(users.find())
+
+    for i in range(len(res)):
+        res[i]["_id"] = str(res[i]["_id"])
+        res[i]["password"] = str(res[i]["password"])
+        for j in range(len(res[i]["widget"])):
+            res[i]["widget"][j] = str(res[i]["widget"][j])
+
+    return res, 200
 
 
 @app.route('/api/employees/login', methods=['POST'])
@@ -76,7 +84,13 @@ def me():
     if check_aut2(request) != True or check_aut(request) != True:
         return 'Bad Aut', 400
 
-    return data[73], 200
+    res = users.find_one({"id": 74})
+    res["_id"] = str(res["_id"])
+    res["password"] = str(res["password"])
+    for j in range(len(res["widget"])):
+        res["widget"][j] = str(res["widget"][j])
+
+    return res, 200
 
 
 @app.route('/api/employees/leader', methods=['GET'])
@@ -98,12 +112,17 @@ def get_emp(employee_id):
     if check_aut2(request) != True or check_aut(request) != True:
         return 'Bad Aut', 400
     id = int(employee_id)
-    print("employee_id is", id)
-    for i in data:
-        if i["id"] == id:
-            del i["_id"]
-            return i, 200
-    return 'Bad request', 400
+    res = users.find_one({"id": id})
+
+    if res is None:
+        return 'Bad request', 400
+
+    res["_id"] = str(res["_id"])
+    res["password"] = str(res["password"])
+    for j in range(len(res["widget"])):
+        res["widget"][j] = str(res["widget"][j])
+
+    return res, 200
 
 
 @app.route('/api/employees/<int:employee_id>/image', methods=['GET'])
