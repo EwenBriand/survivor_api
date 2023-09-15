@@ -21,6 +21,7 @@ private = db["chatPrivate"]
 users = db["users"]
 wdg = db["workshop"]
 quest = db["quest"]
+cal = db["calendar"]
 
 data = list(users.find())
 
@@ -458,9 +459,58 @@ def delete_quest():
     return "ok", 200
 
 
+@app.route('/api/calendar/create', methods=['POST'])
+def create_cal():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data = request.get_json()
+
+    if data is None or "start" not in data or "end" not in data or "title" not in data or "summary" not in data:
+        return 'Bad body', 400
+
+    result = cal.insert_one(
+        {"start": data["start"], "end": data["end"], "title": data["title"], "summary": data["summary"]})
+
+    return str(result.inserted_id), 200
+
+
+@app.route('/api/calendar/delete', methods=['DELETE'])
+def delete_cal():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    id = request.args.get('id')
+
+    if id == None or id == "0" or id == "":
+        return 'Bad request', 400
+
+    print(id)
+
+    print(cal.find_one({"_id": ObjectId(id)}))
+    res = cal.delete_one({"_id": ObjectId(id)})
+
+    if res.deleted_count == 0:
+        return 'Not found', 404
+
+    return "ok", 200
+
+
+@app.route('/api/calendar/get_all', methods=['GET'])
+def get_all_cal():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    response = list(cal.find())
+    if response is None:
+        return 'Not found', 404
+
+    for i in range(len(response)):
+        response[i]["_id"] = str(response[i]["_id"])
+
+    return response, 200
+
+
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
-    # app.run(debug=True)
+    # serve(app, host='0.0.0.0', port=8080)
+    app.run(debug=True)
 
 
 #  http://127.0.0.1:5000
