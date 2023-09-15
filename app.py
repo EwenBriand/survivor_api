@@ -400,11 +400,11 @@ def create_quest():
         return 'Bad Aut', 400
     data = request.get_json()
 
-    if data is None or "type" not in data or "id_emp" not in data or "desc" not in data or "id_doc" not in data or "point" not in data:
+    if data is None or "type" not in data or "id_emp" not in data or "desc" not in data or "id_doc" not in data or "point" not in data or "creator" not in data:
         return 'Bad body', 400
 
     result = quest.insert_one(
-        {"type": data["type"], "desc": data["desc"], "id_doc": data["id_doc"], "point": data["point"], "complete": -1})
+        {"type": data["type"], "desc": data["desc"], "id_doc": data["id_doc"], "point": data["point"], "creator": ObjectId(data["creator"]), "complete": -1})
 
     users.update_one({"id": int(data["id_emp"])}, {
                      "$addToSet": {"q_creat": ObjectId(result.inserted_id)}})
@@ -509,8 +509,8 @@ def get_all_cal():
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
-    # app.run(debug=True)
+    # serve(app, host='0.0.0.0', port=8080)
+    app.run(debug=True)
 
 
 #  http://127.0.0.1:5000
