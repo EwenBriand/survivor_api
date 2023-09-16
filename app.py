@@ -149,6 +149,19 @@ def get_by_quest():
     return response, 200
 
 
+@app.route('/api/employees/clear_quest', methods=['POST'])
+def clear_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data = request.get_json()
+    if data is None or "id" not in data or "idQ" not in data or "point" not in data:
+        return 'Bad body', 400
+
+    users.update_one({"id": int(data["id"])}, {"$pull": {"q_acc": ObjectId(
+        data["idQ"])}, "$inc": {"WWP": int(data["point"])}})
+    return "ok", 200
+
+
 @app.route('/api/employees/<int:employee_id>', methods=['GET'])
 def get_emp(employee_id):
     if check_aut2(request) != True or check_aut(request) != True:
