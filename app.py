@@ -121,6 +121,34 @@ def leader():
     ], 200
 
 
+@app.route('/api/employees/get_by_quest', methods=['GET'])
+def get_by_quest():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    id = request.args.get('id')
+    print("id: ", id)
+    if id == "0":
+        return 'Bad request', 400
+    response = list(users.find({"q_acc": ObjectId(id)}))
+
+    print(response)
+
+    if response is None:
+        return 'Not found', 404
+
+    for i in range(len(response)):
+        response[i]["_id"] = str(response[i]["_id"])
+        response[i]["password"] = str(response[i]["password"])
+        for j in range(len(response[i]["widget"])):
+            response[i]["widget"][j] = str(response[i]["widget"][j])
+        for j in range(len(response[i]["q_acc"])):
+            response[i]["q_acc"][j] = str(response[i]["q_acc"][j])
+        for j in range(len(response[i]["q_creat"])):
+            response[i]["q_creat"][j] = str(response[i]["q_creat"][j])
+
+    return response, 200
+
+
 @app.route('/api/employees/<int:employee_id>', methods=['GET'])
 def get_emp(employee_id):
     if check_aut2(request) != True or check_aut(request) != True:
