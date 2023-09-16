@@ -162,6 +162,19 @@ def clear_quest():
     return "ok", 200
 
 
+@app.route('/api/employees/level', methods=['POST'])
+def level():
+    if check_aut2(request) != True or check_aut(request) != True:
+        return 'Bad Aut', 400
+    data = request.get_json()
+    if data is None or "id" not in data or "level" not in data:
+        return 'Bad body', 400
+
+    users.update_one({"id": int(data["id"])}, {
+                     "$set": {"niveau": int(data["level"])}})
+    return "ok", 200
+
+
 @app.route('/api/employees/<int:employee_id>', methods=['GET'])
 def get_emp(employee_id):
     if check_aut2(request) != True or check_aut(request) != True:
@@ -550,8 +563,8 @@ def get_all_cal():
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=8080)
-    # app.run(debug=True)
+    # serve(app, host='0.0.0.0', port=8080)
+    app.run(debug=True)
 
 
 #  http://127.0.0.1:5000
